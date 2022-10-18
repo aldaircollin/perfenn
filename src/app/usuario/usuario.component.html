@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">
+      Lista de Usuarios </div>
+    <div class="card-body">
+       
+          <a class="nav-link"  routerLink="/usuarios/guardar"><i class="fas fa-plus-circle"></i> Nuevo Usuario</a>
+     <br>
+        
+      <table class="table caption-top">
+        <caption></caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">DIRECCION</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.direccion}}</td>
+            <td>{{usuario.email}}</td>
+            <td>
+                <button class="btn btn-outline-primary" routerLink="/usuarios/detalle/{{usuario.id}}" style="margin-left : 10px;"><i class="far fa-eye"></i> Ver</button>
+                <button class="btn btn-outline-warning" routerLink="/usuarios/editar/{{usuario.id}}" style="margin-left : 10px;"><i class="far fa-edit"></i> Editar</button>
+                <button class="btn btn-outline-danger" (click)="borrar(usuario.id)" style="margin-left : 10px;"><i class="far fa-trash-alt"></i> Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
